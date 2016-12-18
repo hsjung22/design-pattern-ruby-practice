@@ -1,5 +1,6 @@
 class SimpleLogger
 	attr_accessor :level
+	@@instance = SimpleLogger.new
 
 	ERROR = 1
 	WARNING = 2
@@ -23,6 +24,10 @@ class SimpleLogger
 	def info(msg)
 		@log.puts(msg) if @level >= INFO
 		@log.flush
+	end
+
+	def self.instance
+		return @@instance
 	end
 
 end
